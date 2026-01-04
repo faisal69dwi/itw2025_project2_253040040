@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TubesITWFaisaldwiraharja</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+     <link rel="stylesheet" href="src/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .serif { font-family: 'Playfair Display', serif; }
+        
+        .article-item {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        .text-display {
+            transition: opacity 0.3s ease;
+        }
+
+    </style>
+</head>
+<body class="bg-[#fafaf9] text-stone-900 antialiased">
+<!-- navabrr start -->
+   <nav class="sticky top-0 z-50 bg-[#fafaf9]/90 backdrop-blur-md border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="flex items-center">
+            <a href="#home">
+                <img src="img/logo.png" alt="Logo" class="h-10 md:h-12 w-auto object-contain">
+            </a>
+            <div class="ml-3 hidden sm:block border-l border-stone-300 pl-3">
+                <span class="text-[10px] md:text-xs uppercase tracking-tighter serif block leading-none">Lembaga Pers Mahasiswa</span>
+                <span class="text-[10px] md:text-xs font-bold uppercase tracking-tighter serif block text-stone-900">Universitas Pasundan</span>
+            </div>
+        </div>
+
+        <button id="menu-btn" class="md:hidden block text-stone-900 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+
+        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-medium">
+            <a href="#home" class="nav-link hover:text-stone-500 transition">Beranda</a>
+            <a href="#articles" class="nav-link hover:text-stone-500 transition">Karya</a>
+            <a href="#about" class="nav-link hover:text-stone-500 transition">Profil</a>
+            <a href="#divisions" class="nav-link hover:text-stone-500 transition">Struktur</a>
+            <a href="#contact" class="nav-link hover:text-stone-500 transition">Kontak</a>
+        </div>
+
+        <a href="https://jumpaonline.com" target="_blank" class="hidden md:inline-block bg-stone-900 text-white px-5 py-2 text-xs uppercase tracking-widest hover:bg-stone-700 transition">
+            Jumpa Online
+        </a>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[#fafaf9] border-b border-stone-200 px-6 py-6 space-y-4 shadow-xl">
+        <a href="#home" class="mobile-link block text-sm uppercase tracking-widest font-semibold">Beranda</a>
+        <a href="#articles" class="mobile-link block text-sm uppercase tracking-widest font-semibold">Karya</a>
+        <a href="#about" class="mobile-link block text-sm uppercase tracking-widest font-semibold">Profil</a>
+        <a href="#divisions" class="mobile-link block text-sm uppercase tracking-widest font-semibold">Struktur</a>
+        <a href="#contact" class="mobile-link block text-sm uppercase tracking-widest font-semibold">Kontak</a>
+        <hr class="border-stone-200">
+        <a href="https://jumpaonline.com" class="block text-center bg-stone-900 text-white py-3 text-xs uppercase tracking-widest">Jumpa Online</a>
+    </div>
+</nav>
+    <!-- navbar endd -->
+
+    <!-- hero start -->
+    <header id="home" class="relative w-full h-[75vh] md:h-[85vh] flex items-center justify-center overflow-hidden bg-stone-900">
+    <video autoplay loop muted playsinline 
+           class="absolute inset-0 w-full h-full object-cover opacity-50 contrast-110 brightness-75 grayscale-[0.2]">
+        <source src="vid/lv_0_20260104193523.mp4" type="video/mp4">
+    </video>
+
+    <div class="absolute inset-0 bg-black/30"></div> <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-black/40"></div> <div class="relative z-10 text-center px-6">
+        <h1 class="text-4xl md:text-7xl text-white serif mb-8 max-w-4xl italic leading-tight drop-shadow-xl">
+            Rekam, Tulis, Sebarkan. Jadilah Berani!
+        </h1>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="#articles" class="w-full sm:w-auto bg-white text-stone-900 px-8 py-3 md:py-4 text-xs uppercase tracking-widest font-semibold hover:bg-stone-100 transition shadow-lg">
+                Baca Karya
+            </a>
+            <a href="#about" class="w-full sm:w-auto border border-white text-white px-8 py-3 md:py-4 text-xs uppercase tracking-widest font-semibold hover:bg-white hover:text-stone-900 transition text-center backdrop-blur-sm">
+                Tentang Kami
+            </a>
+        </div>
+    </div>
+</header>
+    <!-- hero end-->
+
+    <!-- karya start -->
+    <section class="py-12 border-b border-stone-200 bg-[#fafaf9]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div id="filter-buttons" class="flex flex-wrap justify-center gap-6 md:gap-12 text-sm uppercase tracking-widest font-semibold text-stone-400">
+                <button class="filter-btn text-stone-900 border-b-2 border-stone-900 pb-2" data-category="semua">Terbaru</button>
+                <button class="filter-btn hover:text-stone-900 transition pb-2" data-category="kampus">Kampus</button>
+                <button class="filter-btn hover:text-stone-900 transition pb-2" data-category="perspektif">Perspektif</button>
+                <button class="filter-btn hover:text-stone-900 transition pb-2" data-category="sastra">Sastra</button>
+                <button class="filter-btn hover:text-stone-900 transition pb-2" data-category="ulas">Ulas</button>
+            </div>
+        </div>
+    </section>
+
+   <section id="articles" class="py-20 max-w-7xl mx-auto px-6">
+    <h2 class="serif text-3xl mb-12 italic border-l-4 border-stone-900 pl-4 text-display">Karya Terbaru</h2>
+    
+    <div id="article-grid" class="grid grid-cols-1 md:grid-cols-3 gap-12 transition-all duration-500">
+        
+        <article class="article-item group cursor-pointer" data-category="kampus">
+            <div class="overflow-hidden mb-4 relative bg-stone-200">
+                <img src="img/konten1.avif" alt="Foto Kampus" 
+                     class="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition duration-700 group-hover:scale-105">
+                <div class="absolute bottom-2 right-2 bg-black/50 text-[10px] text-white px-2 py-1 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition">
+                    Foto: Dokumentasi Jumpa
+                </div>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold">Kampus • 24 Okt 2025</span>
+            <h3 class="serif text-2xl mt-3 mb-4 leading-snug group-hover:text-stone-600 transition">Lorong Sepi: Dinamika Pasca-Ujian Unpas</h3>
+            <p class="text-stone-600 leading-relaxed ">Menelusuri sudut kampus Setiabudhi yang menjadi saksi perjuangan mahasiswa Universitas Pasundan...</p>
+        </article>
+
+        <article class="article-item group cursor-pointer" data-category="perspektif">
+            <div class="overflow-hidden mb-4 relative bg-stone-200">
+                <img src="img/konten2.avif" alt="Foto Perspektif" 
+                     class="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition duration-700 group-hover:scale-105">
+                <div class="absolute bottom-2 right-2 bg-black/50 text-[10px] text-white px-2 py-1 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition">
+                    Foto: Arsip LPM
+                </div>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold">Perspektif • 20 Okt 2025</span>
+            <h3 class="serif text-2xl mt-3 mb-4 leading-snug group-hover:text-stone-600 transition">Otonomi Kampus: Antara Prestasi dan Komersialisasi</h3>
+            <p class="text-stone-600 leading-relaxed ">Analisis mendalam mengenai arah kebijakan kampus dan dampaknya terhadap biaya pendidikan...</p>
+        </article>
+
+        <article class="article-item group cursor-pointer" data-category="sastra">
+            <div class="overflow-hidden mb-4 relative bg-stone-200">
+                <img src="img/konten3.avif" alt="Foto Sastra" 
+                     class="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition duration-700 group-hover:scale-105">
+                <div class="absolute bottom-2 right-2 bg-black/50 text-[10px] text-white px-2 py-1 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition">
+                    Ilustrasi: Divisi Medkom
+                </div>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold">Sastra • 15 Okt 2025</span>
+            <h3 class="serif text-2xl mt-3 mb-4 leading-snug group-hover:text-stone-600 transition">Sajak Tengah Malam di Lengkong Besar</h3>
+            <p class="text-stone-600 leading-relaxed ">Kumpulan puisi mahasiswa tentang hiruk pikuk kota Bandung dan kerinduan akan ruang kelas...</p>
+        </article>
+
+        <article class="article-item group cursor-pointer" data-category="ulas">
+            <div class="overflow-hidden mb-4 relative bg-stone-200">
+                <img src="img/konten4.jpg" alt="Foto Ulas" 
+                     class="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition duration-700 group-hover:scale-105">
+                <div class="absolute bottom-2 right-2 bg-black/50 text-[10px] text-white px-2 py-1 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition">
+                    Foto: Redaksi
+                </div>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold">Ulas • 10 Okt 2025</span>
+            <h3 class="serif text-2xl mt-3 mb-4 leading-snug group-hover:text-stone-600 transition">Resensi: Mencari Makna dalam 'Bumi Manusia'</h3>
+            <p class="text-stone-600 leading-relaxed ">Bedah karya klasik Pramoedya Ananta Toer dari sudut pandang pembaca milenial di lingkungan kampus.</p>
+        </article>
+
+    </div>
+</section>
+    <!-- karya end -->
+
+    <!-- about start -->
+    <section id="about" class="bg-stone-900 text-stone-100 py-24">
+        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="serif text-4xl mb-6 italic">Mendokumentasikan Dinamika Kampus Sejak 6 April 1995.</h2>
+                <p class="text-stone-400 leading-relaxed mb-8">LPM ‘Jumpa’ Unpas bukan sekadar media; kami adalah ingatan kolektif Universitas Pasundan. Kami menyediakan wadah suara mahasiswa, menumbuhkan nalar kritis, dan menjunjung tinggi integritas jurnalisme.</p>
+                <div class="grid grid-cols-2 gap-8 border-t border-stone-800 pt-8">
+                    <div>
+                        <h5 class="font-bold text-white uppercase tracking-tighter mb-2">Visi</h5>
+                        <p class="text-sm text-stone-500">Mengabarkan Kebenaran</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-white uppercase tracking-tighter mb-2">Misi</h5>
+                        <p class="text-sm text-stone-500">Berjumpa, Bersahabat, Berjuang, dan Berkarya.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="img/konten5.avif" class="grayscale grayscale-filter">
+                <div class="absolute -bottom-6 -left-6 bg-[#fafaf9] p-8 hidden md:block">
+                    <p class="text-stone-900 serif text-xl italic font-semibold">"Penindasan harus dilawan, pembodohan harus dihapuskan"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="py-20 bg-stone-50 border-y border-stone-200">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="space-y-2">
+                <span class="block serif text-4xl md:text-5xl italic text-stone-900">30+</span>
+                <span class="block text-[10px] uppercase tracking-[0.2em] text-stone-500 font-bold">Tahun Berkarya</span>
+            </div>
+            <div class="space-y-2">
+                <span class="block serif text-4xl md:text-5xl italic text-stone-900">500+</span>
+                <span class="block text-[10px] uppercase tracking-[0.2em] text-stone-500 font-bold">Alumni Aktif</span>
+            </div>
+            <div class="space-y-2">
+                <span class="block serif text-4xl md:text-5xl italic text-stone-900">12k+</span>
+                <span class="block text-[10px] uppercase tracking-[0.2em] text-stone-500 font-bold">Karya Digital</span>
+            </div>
+            <div class="space-y-2">
+                <span class="block serif text-4xl md:text-5xl italic text-stone-900">1</span>
+                <span class="block text-[10px] uppercase tracking-[0.2em] text-stone-500 font-bold">Semangat Juang</span>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <section id="divisions" class="py-24 max-w-7xl mx-auto px-6 bg-white">
+        <div class="text-center mb-16">
+            <h2 class="serif text-4xl italic">Kepengurusan & Redaksi</h2>
+            <p class="text-stone-500 mt-2 uppercase tracking-widest text-xs">Pilar-pilar di balik layar LPM ‘Jumpa’ Unpas</p>
+        </div>
+        <div class="space-y-24">
+            <div class="group">
+                <div class="flex items-center mb-8">
+                    <span class="text-3xl serif italic mr-4 text-stone-300">01.</span>
+                    <h3 class="serif text-2xl italic border-b border-stone-200 pb-2 w-full">Struktur Organisasi UKM</h3>
+                </div>
+                <div class="bg-stone-50 p-4 shadow-sm border border-stone-100"><img src="img/struktur.png" class="w-full h-auto grayscale hover:grayscale-0 transition duration-700"></div>
+                <p class="mt-4 text-stone-500 text-sm italic tracking-wide text-right">
+                Menjalankan fungsi manajerial, pengembangan sumber daya anggota, dan koordinasi internal UKM.
+            </p>
+            </div>
+            <div class="group">
+                <div class="flex items-center mb-8">
+                    <span class="text-3xl serif italic mr-4 text-stone-300">02.</span>
+                    <h3 class="serif text-2xl italic border-b border-stone-200 pb-2 w-full">Struktur Redaksi Jumpa</h3>
+                </div>
+                <div class="bg-stone-50 p-4 shadow-sm border border-stone-100"><img src="img/struktur.png" class="w-full h-auto grayscale hover:grayscale-0 transition duration-700"></div>
+            </div>
+            <p class="mt-4 text-stone-500 text-sm italic tracking-wide text-right">
+                Menjalankan fungsi manajerial, pengembangan sumber daya anggota, dan koordinasi internal UKM.
+            </p>
+        </div>
+    </section>
+    <!-- about end -->
+
+    <!-- kontak start -->
+    <section id="contact" class="bg-stone-100 py-24 font-light">
+        <div class="max-w-4xl mx-auto px-6 bg-white p-12 shadow-sm border border-stone-200">
+            <div class="text-center mb-12">
+                <h2 class="serif text-3xl italic">Mari Berkolaborasi</h2>
+                <p class="text-stone-500 mt-2">Kirim naskah atau ajukan liputan ke redaksi kami.</p>
+            </div>
+            <form id="contact-form" class="space-y-6">
+    <div class="grid md:grid-cols-2 gap-6">
+        <input type="text" name="Nama" placeholder="Nama Lengkap" required 
+               class="w-full border-b border-stone-300 py-3 focus:border-stone-900 outline-none transition bg-transparent font-light">
+        
+        <input type="email" name="Email" placeholder="Email" required 
+               class="w-full border-b border-stone-300 py-3 focus:border-stone-900 outline-none transition bg-transparent font-light">
+    </div>
+    
+    <textarea name="Pesan" rows="4" placeholder="Pesan Anda" required 
+              class="w-full border-b border-stone-300 py-3 focus:border-stone-900 outline-none transition bg-transparent font-light"></textarea>
+    
+    <button type="submit" id="submit-btn" class="w-full bg-stone-900 text-white py-4 uppercase tracking-[0.2em] text-sm font-semibold hover:bg-stone-800 transition">
+        Kirim Pesan
+    </button>
+</form>
+
+<div id="status-msg" class="hidden mt-4 text-center text-sm font-medium"></div>
+        </div>
+    </section>
+    <!-- kontak end -->
+
+    <!-- footer start -->
+    <footer class="bg-stone-900 text-stone-300 pt-20 pb-10 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        
+        <div class="col-span-1 md:col-span-1">
+            <div class="serif text-2xl text-white italic font-bold mb-4">LPM ‘Jumpa’ Unpas</div>
+            <p class="text-xs leading-relaxed text-stone-500 uppercase tracking-widest mb-6 font-medium">
+                Lembaga Pers Mahasiswa Universitas Pasundan. Sejak 1995 Mengabarkan kebenaran.
+            </p>
+            <div class="flex space-x-6">
+    <a href="https://www.instagram.com/lpmjumpa/" target="_blank" class="text-stone-500 hover:text-white transition-colors duration-300" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    </a>
+    <a href="https://www.youtube.com/@lpmjumpaunpas" target="_blank" class="text-stone-500 hover:text-white transition-colors duration-300" aria-label="YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.46 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
+    </a>
+    <a href="https://x.com/lpmjumpa" target="_blank" class="text-stone-500 hover:text-white transition-colors duration-300" aria-label="X">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.768-6.768M20 4l-6.768 6.768"></path></svg>
+    </a>
+</div>
+        </div>
+
+        <div>
+            <h4 class="text-white text-xs uppercase tracking-widest font-bold mb-6">Navigasi</h4>
+            <ul class="space-y-4 text-sm font-light">
+                <li><a href="#home" class="hover:text-white transition">Beranda</a></li>
+                <li><a href="#articles" class="hover:text-white transition">Karya Jurnalistik</a></li>
+                <li><a href="#about" class="hover:text-white transition">Profil Organisasi</a></li>
+                <li><a href="#divisions" class="hover:text-white transition">Struktur Redaksi</a></li>
+            </ul>
+        </div>
+
+       <div class="col-span-1 md:col-span-2">
+    <h4 class="text-white text-xs uppercase tracking-widest font-bold mb-6">Sekretariat</h4>
+    <div class="border-l border-stone-700 pl-6">
+        <span class="block text-white text-[10px] uppercase font-bold mb-2 tracking-tighter text-stone-500">Alamat Pusat</span>
+        <p class="text-lg serif italic text-white leading-relaxed mb-1">
+            Universitas Pasundan Bandung
+        </p>
+        <p class="text-sm font-light leading-relaxed text-stone-400">
+            Jl. Tamansari No. 6 – 8, Gedung FEB Lantai 3,<br>
+            Kota Bandung, Jawa Barat 40116.
+        </p>
+        
+        <div class="mt-6">
+            <a href="https://maps.app.goo.gl/ep3nra92Ec5nKWwa7" target="_blank" class="inline-flex items-center text-xs border-b border-stone-700 pb-1 hover:border-white hover:text-white transition uppercase tracking-widest font-bold">
+                Buka di Google Maps 
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 pt-10 border-t border-stone-800 text-center">
+        <p class="text-[10px] text-stone-600 font-light tracking-[0.3em] uppercase">
+            &copy; 2026 Faisal Dwi Raharja, Tugas Besar Internet dan Teknologi Web (2026).
+        </p>
+    </div>
+</footer>
+<!-- footer endd -->
+
+    <script>
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const articles = document.querySelectorAll('.article-item');
+        const titleDisplay = document.querySelector('.text-display');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('text-stone-900', 'border-b-2', 'border-stone-900'));
+                btn.classList.add('text-stone-900', 'border-b-2', 'border-stone-900');
+                const category = btn.getAttribute('data-category');
+                titleDisplay.style.opacity = '0';
+                articles.forEach(article => {
+                    article.style.opacity = '0';
+                    article.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        if (category === 'semua' || article.getAttribute('data-category') === category) {
+                            article.style.display = 'block';
+                            setTimeout(() => { article.style.opacity = '1'; article.style.transform = 'translateY(0)'; }, 50);
+                        } else { article.style.display = 'none'; }
+                    }, 400);
+                });
+                setTimeout(() => {
+                    titleDisplay.innerText = category === 'semua' ? 'Karya Terbaru' : `Karya: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
+                    titleDisplay.style.opacity = '1';
+                }, 400);
+            });
+        });
+    </script>
+
+    <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxM01HVaeYoe87pG8DsxGMYwhZEqwUpWPH2WG-g2LmhOl90lH3XZSIi0mr52Jgfl1CXmg/exec'; 
+    const form = document.getElementById('contact-form');
+    const btn = document.getElementById('submit-btn');
+    const msg = document.getElementById('status-msg');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerText = 'Mengirim...';
+        msg.classList.remove('hidden');
+        msg.innerText = 'Tunggu sebentar ya...';
+        msg.style.color = 'gray';
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                btn.disabled = false;
+                btn.innerText = 'Kirim Pesan';
+                msg.innerText = 'Pesan berhasil terkirim! Hatur nuhun.';
+                msg.style.color = 'green';
+                form.reset();
+                setTimeout(() => { msg.classList.add('hidden'); }, 5000);
+            })
+            .catch(error => {
+                btn.disabled = false;
+                btn.innerText = 'Kirim Pesan';
+                msg.innerText = 'Waduh, ada error nih. Coba lagi ya!';
+                msg.style.color = 'red';
+                console.error('Error!', error.message);
+            });
+    });
+</script>
+
+    <script>
+   
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+       
+        if (mobileMenu.classList.contains('hidden')) {
+            menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+        } else {
+            menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+        }
+    });
+
+  
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
